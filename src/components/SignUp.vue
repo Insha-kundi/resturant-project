@@ -12,7 +12,7 @@
 
     <input type="password" v-model="password" placeholder="Enter Your Password">
 
-     <button @click="SignUp">Sign Up</button>
+     <button @click="SignUp" @keyup.enter="SignUp()" >Sign Up</button>
 
      <router-link to="/login-page">Login Here</router-link>
 

@@ -5,10 +5,10 @@
 
 <form action="" class="add-form">
 
-    <input type="text" name="name" id="" placeholder="Enter Name of Resturant" v-model="resturant.name">
-    <input type="text" name="contact" id="" placeholder="Enter Contact of Resturant" v-model="resturant.contact">
+    <input type="text" name="name" id="" placeholder="Enter Name of Resturant" v-model="resturant.name" v-on:keyup.enter="AddResturant()">
+    <input type="text" name="contact" id="" placeholder="Enter Contact of Resturant" v-model="resturant.contact" v-on:keyup.enter="AddResturant()">
 
-    <input type="text" name="address" id="" placeholder="Enter Address of Resturant" v-model="resturant.address">
+    <input type="text" name="address" id="" placeholder="Enter Address of Resturant" v-model="resturant.address" v-on:keyup.enter="AddResturant()">
 
     <button @click="AddResturant" type="button">Add Resturant</button>
 
@@ -45,9 +45,9 @@ export default {
 
 
     methods:{
-    
-
-      async AddResturant(){
+        
+        
+        async AddResturant(){
 
             let result = await axios.post("http://localhost:3000/resturant", {
 
