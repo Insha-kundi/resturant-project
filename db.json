@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "25f4",
+      "email": "inshakundi947@gmail.com",
+      "password": "Insha123",
+      "name": "Insha"
+    },
+    {
+      "id": "3158",
+      "email": "inshakundi947@gmail.com",
+      "password": "Insha123",
+      "name": "Insha"
+    },
+    {
+      "id": "1",
+      "email": "inshakundi94@gmail.com",
+      "password": "Insha1234",
+      "name": ""
+    }
+  ],
+  "resturant": [
+    {
+      "id": "1",
+      "name": "Bing Bang",
+      "contact": "123545968",
+      "address": "Peshwar Saab"
+    },
+    {
+      "id": "2",
+      "name": "KFC",
+      "contact": "12322545968",
+      "address": "Lahore DHA Saab"
+    },
+    {
+      "id": "3",
+      "name": "Cheszious",
+      "contact": "12352245968",
+      "address": "Wapda Town Lahore"
+    },
+    {
+      "id": "4",
+      "name": "Pitzaa Hut",
+      "contact": "12233545968",
+      "address": "Toker Saab"
+    },
+    {
+      "id": "9f76",
+      "name": "insha ullah",
+      "contact": "12345",
+      "address": "peshawar"
+    },
+    {
+      "id": "41bd",
+      "name": "Insha Khan",
+      "contact": "12334432",
+      "address": "DDP, Dubai Silicon Oasis, Dubai"
+    }
+  ]
+}
