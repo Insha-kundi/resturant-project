@@ -23,15 +23,87 @@
       "email": "inshakundi@gmail.com",
       "password": "Pakistan",
       "name": "Aslase"
+    },
+    {
+      "id": "d32a",
+      "email": "insha@gmail.com",
+      "password": "Pakistan",
+      "name": "Insha Khan"
+    },
+    {
+      "id": "cfde",
+      "email": "inshakundi947@gmail.com",
+      "password": "Insha123",
+      "name": ""
+    },
+    {
+      "id": "9dd7",
+      "email": "inshakundi947@gmail.com",
+      "password": "Insha123",
+      "name": ""
+    },
+    {
+      "id": "7119",
+      "email": "inshakundi947@gmail.com",
+      "password": "Insha123",
+      "name": ""
+    },
+    {
+      "id": "924d",
+      "email": "inshakundi947@gmail.com",
+      "password": "Insha123",
+      "name": ""
+    },
+    {
+      "id": "910a",
+      "email": "",
+      "password": "Insha123",
+      "name": ""
+    },
+    {
+      "id": "00be",
+      "email": "",
+      "password": "",
+      "name": ""
+    },
+    {
+      "id": "cb5d",
+      "email": "",
+      "password": "",
+      "name": ""
+    },
+    {
+      "id": "85f6",
+      "email": "",
+      "password": "",
+      "name": ""
+    },
+    {
+      "id": "3ff5",
+      "email": "",
+      "password": "",
+      "name": ""
+    },
+    {
+      "id": "4215",
+      "name": "insha",
+      "email": "superadmin@example.com",
+      "password": "fisnahjawek"
+    },
+    {
+      "id": "0730",
+      "name": "ins",
+      "email": "inshak@gmail.com",
+      "password": "Insha123"
+    },
+    {
+      "id": "3afd",
+      "name": "Insha",
+      "email": "Insha@gmail.com",
+      "password": "Pakistan1122"
     }
   ],
   "resturant": [
-    {
-      "name": "KFC32ee22222",
-      "contact": "12322545968",
-      "address": "Lahore DHA ",
-      "id": "2"
-    },
     {
       "name": "Insha Khan",
       "contact": "22222",
@@ -39,22 +111,16 @@
       "id": "9fb4"
     },
     {
-      "id": "ff5f",
-      "name": "Insha Khan",
-      "contact": "",
-      "address": ""
-    },
-    {
-      "id": "3ca2",
-      "name": "test",
-      "contact": "",
-      "address": ""
-    },
-    {
       "id": "e26b",
       "name": "Insha Khan",
       "contact": "12322545968",
       "address": "thisis anothe r"
+    },
+    {
+      "name": "Standard",
+      "contact": "22222",
+      "address": "EME DHA Phase 12 Aslase",
+      "id": "6e13"
     }
   ]
 }

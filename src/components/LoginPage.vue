@@ -1,19 +1,22 @@
 <template>
 
-<h1>Login</h1>
+    <h1>Login</h1>
 
 
-<div class="Login-page">
+    <div class="Login-page">
 
-    <input type="email" v-model="email" placeholder="Enter Your Email">
+        <input type="email" v-model="email" placeholder="Enter Your Email">
+      <span v-if="errors.email" style="color:red">{{ errors.email }}</span>
 
-    <input type="password" v-model="password" placeholder="Enter Your Password">
 
-     <button @click="LogIn">Login</button>
+        <input type="password" v-model="password" placeholder="Enter Your Password">
+        <span v-if="errors.password" style="color:red">{{ errors.password }}</span>
 
-     <router-link to="/sign-up">Sign Up</router-link>
+        <button @click="LogIn()">Login</button>
 
-</div>
+        <router-link to="/sign-up">Sign Up</router-link>
+
+    </div>
 
 
 </template>
@@ -23,49 +26,83 @@
 import axios from 'axios';
 
 
-export default{
+export default {
 
 
     name: 'LoginPage',
 
-    data(){
+    data() {
 
-        return{
+        return {
             email: '',
-            password: ''
+            password: '',
+            errors: '',
         }
     },
+
+    
 
     /**
      * 
      */
     methods: {
-        
-      async  LogIn()
-        {
 
-            let result = await axios.get(
-                `http://localhost:3000/users?email=${this.email}&password=${this.password}`)
-          
-                if(result.status==200 && result.data.length>0){
+        validateForm() {
+      this.errors = {};
 
-                   
-localStorage.setItem("user-info", JSON.stringify(result.data[0]))
-this.$router.push({name: 'HomePage'})
-}
-}
-        
+      if (!this.email.trim()) {
+        this.errors.email = "Email is required.";
+      } else if (!/^\S+@\S+\.\S+$/.test(this.email)) {
+        this.errors.email = "Invalid email format.";
+      }
+
+      if (!this.password.trim()) {
+        this.errors.password = "Password is required.";
+      } else if (this.password.length < 6) {
+        this.errors.password = "Password must be at least 6 characters.";
+      }
+
+      return Object.keys(this.errors).length === 0;
     },
 
-    mounted(){
 
-        
-let user = localStorage.getItem('user-info');
-if(user){
+        async LogIn() {
+
+          if (!this.validateForm()) {
+        // stop submission if invalid
+        return;
+      }
+
+try{
+
+  let result = await axios.get(
+    `http://localhost:3000/users?email=${this.email}&password=${this.password}`)
     
-    this.$router.push({name: 'HomePage'}) }
-    
-}
+    if (result.status == 200 && result.data.length > 0) {
+      
+      
+      localStorage.setItem("user-info", JSON.stringify(result.data[0]))
+      this.$router.push({ name: 'HomePage' })
+    }
+    }
+
+    catch (error) {
+        console.error("SignUp Failed", error);
+      }
+        }
+
+    },
+
+    mounted() {
+
+
+        let user = localStorage.getItem('user-info');
+        if (user) {
+
+            this.$router.push({ name: 'HomePage' })
+        }
+
+    }
 
 
 };
