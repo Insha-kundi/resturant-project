@@ -1,36 +1,36 @@
 <template>
 
-<div class="nav">
-
-    
-    <router-link to="/">Home</router-link>
-    <router-link to="/add-rest">Add Resturant</router-link>
-
-    <!-- <router-link to="update-rest">Update Resturant</router-link> -->
-
-    <a @click="LogOut" href="#">LogOut</a>
+    <div class="nav">
 
 
+        <router-link to="/">Home</router-link>
+        <router-link to="/add-rest">Add Resturant</router-link>
+
+        <!-- <router-link to="update-rest">Update Resturant</router-link> -->
+
+        <a @click="LogOut" href="#">LogOut</a>
 
 
 
-</div>
+
+
+    </div>
 
 </template>
 
 
 <script>
 
-export default{
+export default {
 
     name: 'HeaderSec',
 
-    methods:{
+    methods: {
 
-        LogOut(){
+        LogOut() {
 
-           localStorage.clear();
-           this.$router.push({name: 'LoginPage'})
+            localStorage.clear();
+            this.$router.push({ name: 'LoginPage' })
 
         }
     }
@@ -42,23 +42,22 @@ export default{
 
 
 <style>
-
-
-.nav{
+.nav {
 
     background-color: aqua;
     padding: 15px;
 }
-.nav a{
+
+.nav a {
 
     margin: 1rem;
     color: black;
     text-decoration: none;
 }
-.nav a:hover{
+
+.nav a:hover {
 
     background-color: bisque;
     padding: 15px;
 }
-
 </style>

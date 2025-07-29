@@ -1,22 +1,26 @@
 <template>
 
-    <h1>Login</h1>
+  <h1>Login</h1>
 
 
-    <div class="Login-page">
+  <div class="Login-page">
 
-        <input type="email" v-model="email" placeholder="Enter Your Email">
-      <span v-if="errors.email" style="color:red">{{ errors.email }}</span>
+    <span v-if="loginError" style="color:red">{{ loginError }}</span>
 
 
-        <input type="password" v-model="password" placeholder="Enter Your Password">
-        <span v-if="errors.password" style="color:red">{{ errors.password }}</span>
+    <input type="email" v-model="email" placeholder="Enter Your Email">
+    <span v-if="errors.email" style="color:red">{{ errors.email }}</span>
 
-        <button @click="LogIn()">Login</button>
 
-        <router-link to="/sign-up">Sign Up</router-link>
+    <input type="password" v-model="password" placeholder="Enter Your Password">
+    <span v-if="errors.password" style="color:red">{{ errors.password }}</span>
 
-    </div>
+    <button @click="LogIn()">Login</button>
+
+
+    <router-link to="/sign-up">Sign Up</router-link>
+
+  </div>
 
 
 </template>
@@ -29,25 +33,26 @@ import axios from 'axios';
 export default {
 
 
-    name: 'LoginPage',
+  name: 'LoginPage',
 
-    data() {
+  data() {
 
-        return {
-            email: '',
-            password: '',
-            errors: '',
-        }
-    },
+    return {
+      email: '',
+      password: '',
+      errors: '',
+      loginError: '',
+    }
+  },
 
-    
 
-    /**
-     * 
-     */
-    methods: {
 
-        validateForm() {
+  /**
+   * 
+   */
+  methods: {
+
+    validateForm() {
       this.errors = {};
 
       if (!this.email.trim()) {
@@ -66,43 +71,51 @@ export default {
     },
 
 
-        async LogIn() {
+    async LogIn() {
+      this.loginError = '';
 
-          if (!this.validateForm()) {
+      if (!this.validateForm()) {
         // stop submission if invalid
         return;
       }
 
-try{
+      try {
 
-  let result = await axios.get(
-    `http://localhost:3000/users?email=${this.email}&password=${this.password}`)
-    
-    if (result.status == 200 && result.data.length > 0) {
-      
-      
-      localStorage.setItem("user-info", JSON.stringify(result.data[0]))
+        let result = await axios.get(
+          `http://localhost:3000/users?email=${this.email}&password=${this.password}`)
+
+        if (result.status == 200 && result.data.length > 0) {
+
+
+          localStorage.setItem("user-info", JSON.stringify(result.data[0]))
+          this.$router.push({ name: 'HomePage' })
+        }
+        else {
+
+          this.loginError = 'Email or password is incorrect.';
+
+        }
+      }
+
+      catch (error) {
+        console.error("SignUp Failed", error);
+        this.loginError = 'Something went wrong. Please try again.';
+
+      }
+    }
+
+  },
+
+  mounted() {
+
+
+    let user = localStorage.getItem('user-info');
+    if (user) {
+
       this.$router.push({ name: 'HomePage' })
     }
-    }
 
-    catch (error) {
-        console.error("SignUp Failed", error);
-      }
-        }
-
-    },
-
-    mounted() {
-
-
-        let user = localStorage.getItem('user-info');
-        if (user) {
-
-            this.$router.push({ name: 'HomePage' })
-        }
-
-    }
+  }
 
 
 };
